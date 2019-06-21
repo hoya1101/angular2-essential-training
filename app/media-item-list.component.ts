@@ -46,7 +46,7 @@ export class MediaItemListComponent {
     }, {
       id: 5,
       name: "Happy Joe: Cheery Road",
-      medium: "Movies",
+      medium: "None",
       category: "Action",
       year: 2015,
       watchedOn: 1457166565384,
