@@ -17,8 +17,24 @@ export class MediaItemFormComponent {
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
       category: new FormControl(''),
-      year: new FormControl(''),
+      year: new FormControl('', this.yearValidator),
     });
+  }
+
+  yearValidator (control) {
+    if (control.value.trim().length === 0) {
+      return null;
+    }
+    let fromYear = 1900;
+    let toYear = 2100;
+    let year = parseInt(control.value);
+    if (year < fromYear || year > toYear ){
+      return {
+        'error': 'year should be 1900-2100'
+      }
+    } else {
+      return null
+    }
   }
 
   onSubmit(mediaItem) {
