@@ -10,6 +10,11 @@ import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service';
 
+
+const lookupList = {
+  mediums: ['Series', 'Movies']
+};
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,7 +29,10 @@ import { MediaItemService } from './media-item.service';
     MediaItemFormComponent
   ],
   providers: [
-    MediaItemService
+    MediaItemService,
+    {provide: 'lookupListToken',
+    useValue: lookupList
+  }
   ],
   bootstrap: [
     AppComponent
