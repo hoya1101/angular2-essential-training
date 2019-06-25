@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 import { MediaItemService } from './media-item.service';
+import { lookupListToken } from './providers'; 
 
 @Component({
   selector: 'mw-media-item-form',
@@ -14,7 +15,7 @@ export class MediaItemFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
-    @Inject('lookupListToken') public lookupLists) {}
+    @Inject(lookupListToken) public lookupLists) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
